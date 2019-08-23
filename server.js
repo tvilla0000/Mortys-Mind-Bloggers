@@ -4,13 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var passport = require('passport');
+
 
 // configures dotenv
 require('dotenv').config();
 
 // require the Database config file (connect to DB)
-
 require('./config/database');
+
+// Require Passport
+require('./config/passport');
 
 
 
@@ -32,6 +36,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
