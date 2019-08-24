@@ -5,7 +5,18 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    
+      <ul class="right">
+        <li>
+        <% if (user) { %>
+          <a href="/logout"><i class="material-icons left"></i>Log Out</a>
+        <% } else { %>
+          <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+        <% } %>
+        </li>
+      </ul>
+  <h1><%= title %></h1>
+    
+    <p>Prepare To Have Your Mind Blown!!</p>
   </body>
 </html>
