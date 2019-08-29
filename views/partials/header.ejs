@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    </head>
+    <body>
+    
+
+    <nav id="nav-bar">
+
+    <p id="p1"> Morty's Mind Bloggers</p>
+      <input type="text" placeholder="Search" id="search-bar"><button id="search-btn">Search</button>
+    
+    <div class="dropdown">
+      <button class="dropbtn">New To Rick & Morty? 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/views/about">About</a>
+        <a href="/views/characters">Characters</a>
+        <a href="/views/settings"> settings</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Episode Guide
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/views/s1Episodes">Season 1</a>
+        <a href="/views/s2Episode">Season 2</a>
+        <a href="/views/s3Episodes">Season 3</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Funny References 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/views/references">Jokes</a>
+        
+      </div>
+    </div>
+    <button id="login">
+    <% if (user) { %>
+      <a href="/logout" class="links"><i class="material-icons"></i>Log Out</a>
+      <% } else { %>
+        <a href="/auth/google"class="links"><i class="material-icons"></i>Login/Sign Up</a>
+        <% } %>
+        <div id="acct-img"
+        <i class="material-icons">
+            account_circle
+            </i>
+        </div>
+    </button>
+  </nav>
+  
+
+    </body>
+</html>

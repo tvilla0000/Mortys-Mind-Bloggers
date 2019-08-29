@@ -4,7 +4,7 @@ var passport = require('passport');
 var indexCtrl = require('../controllers/index');
 /* GET home page. */
 router.get('/', indexCtrl.index);
-router.get('./auth/google', passport.authenticate(
+router.get('/auth/google', passport.authenticate(
 'google',
 {scope:  ['profile', 'email'] }
 ));
