@@ -4,20 +4,18 @@ module.exports = {
     index,
     create,
     show,
-    update
-
+    update,
+    delete: deleteComment
 }
 
 function index(req, res) {
-    res.render('comments', {
-        Comment,
-        user: req.user,
-        
-        
-
-    }
-    )};
-
+    Comment.find({}, function(err, comments) {
+        res.render('comments', {
+            user: req.user,
+            comments
+        })
+    });
+}
 
 function create(req, res) {
     // if (!req.user) res.status(401).send('must log in to access this!!');
@@ -45,4 +43,17 @@ function update(req, res) {
         res.render('showpage', comment );
 
     });
+}
+
+// function deleteComment(req, res) {
+//     Comment.findByIdAndDelete(id, req.body, function(err, comment) {
+//         res.redirect('/comments')
+//     })
+// }
+
+function deleteComment(req, res) {
+    Comment.findByIdAndDelete({'_id': req.params.id})
+    .then(comment => {
+        res.redirect('/comments');
+    })
 }

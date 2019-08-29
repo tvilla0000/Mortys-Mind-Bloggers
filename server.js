@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
-
+const methodOverride = require('method-override');
 
 // configures dotenv
 require('dotenv').config();
@@ -25,6 +25,7 @@ const commentsRouter = require('./routes/comments');
 
 
 var app = express();
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -2,11 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-    username: {
-        type: String,
-    },
-    comment: {
-        type: String,
+    content: String,
+    caption: String,
+    
+}, {
+    timestamp: true
+});
 
-    }
-})
+module.exports = mongoose.model('Comment', commentSchema);
+
+
