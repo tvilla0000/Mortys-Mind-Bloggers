@@ -141,9 +141,23 @@ h1 {
 
 }
 
+#edit {
+  height: 75px;
+  width: 175px;
+  font-size: 30px;
+}
 
+#editpath {
+  text-decoration: none;
+  color: black;
+  
+}
 
-
+#delete {
+  height: 75px;
+  width: 175px;
+  font-size: 30px;
+}
 
 #p2 {
   color: white;
@@ -165,31 +179,61 @@ top: 15px;
 .div {
   height: 20px;
   width:150px;
-  background-color: aqua
+
 }
 
 #div {
-  height: 200px;
-  width:250px;
-  border: 4px solid white;
+  height: 400px;
+  width:450px;
+  border: 3.5px solid white;
+  border-radius: 10px;
   background-color: rgba(62, 59, 59, 0.66);
 }
 
 #showcaption {
-  font-size: 25px;
+  font-size: 45px;
+  
 
 }
 
 #showcontent {
-  font-size: 14px;
+  font-size: 35px;
+  
+  
 }
 #caption {
-  font-size: 20px;
+  font-size:45px;
+  border: 2px solid white;
 
 }
 
 #comment {
-  border: 2px solid white;
-  width: 250px;
-  background-color: rgba(206, 206, 206, 0.66);
+  height: 400px;
+  width:450px;
+  border: 3.5px solid white;
+  border-radius: 10px;
+  background-color: rgba(62, 59, 59, 0.66);
+  font-size: 40px;
+  position: relative;
 }
+
+#page {
+  height: 645px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#form {
+  display: flex;
+  justify-content: flex-end
+}
+
+.buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+  border: 2px solid white;
+  padding: 10px 10px;
+}
+

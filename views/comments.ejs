@@ -1,17 +1,22 @@
 <%- include('./partials/header'); %>
-<form action="/comments" method="POST">
-<input type="text" placeholder="Season? Episode?" name="caption"><br>
-<input type="text" placeholder="What do you have to Say?!?" name="content">
-<button>Submit</button>
-</form>
+<div class="div">
+<form action="/comments" method="POST" \>
+    <input type="text" placeholder="Season? Episode?" name="caption"><br>
+    <input type="text" placeholder="What do you have to Say?!?" name="content">
+    <button>Submit</button>
+    </form>
+</div><br><br><br>
 
 <% comments.forEach(function(c) { %>
-<form action="/comments/<%= c._id%>?_method=DELETE" method="POST">
+<form action="/comments/<%= c._id%>?_method=DELETE" method="POST" id="form">
     <div id="comment">
     <div><h1 id="caption"><%= c.caption %></h1></div>
     <div><p id="content"><%= c.content %></p></div>
-    <button type="submit" id="delete">Delete</button>
 </form>
+<div class="buttons">
+    <button type="submit" id="delete">Delete</button>
+    <button id="edit"><a href="/comments/<%= c._id %>/edit" id="editpath">Edit</a></button>
+</div>
 
 </div>
 

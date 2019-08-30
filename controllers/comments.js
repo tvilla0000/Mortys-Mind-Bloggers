@@ -5,7 +5,9 @@ module.exports = {
     create,
     show,
     update,
-    delete: deleteComment
+    delete: deleteComment,
+    editComment
+
 }
 
 function index(req, res) {
@@ -18,7 +20,7 @@ function index(req, res) {
 }
 
 function create(req, res) {
-    // if (!req.user) res.status(401).send('must log in to access this!!');
+    if (!req.user) res.status(401).send('must log in to access this!!');
     var comment = new Comment(req.body);
     comment.user = req.user.id;
     comment.save(function(err) {
@@ -38,22 +40,25 @@ function show(req, res) {
     })
 }
 
-function update(req, res) {
-    Comment.findByIdAndUpdate(id , req.body, function(err, comment) {
-        res.render('showpage', comment );
+function editComment(req, res) {
+    Comment.findById(req.params.id, function(err, foundComment){
+        res.render('editcomment', {
+            comment: foundComment
+        })
+    })
+}
 
+function update(req, res) {
+    Comment.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, comment) {
+        res.redirect('/comments');
+        if(err) return console.log(err);
     });
 }
 
-// function deleteComment(req, res) {
-//     Comment.findByIdAndDelete(id, req.body, function(err, comment) {
-//         res.redirect('/comments')
-//     })
-// }
-
 function deleteComment(req, res) {
-    Comment.findByIdAndDelete({'_id': req.params.id})
-    .then(comment => {
-        res.redirect('/comments');
+    Comment.findByIdAndDelete(req.params.id, function(err, comments) {
+        res.redirect('/comments')
     })
 }
+
+

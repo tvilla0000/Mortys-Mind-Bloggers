@@ -5,7 +5,10 @@ const router = express.Router();
 router.get('/', commentsCtrl.index);
 router.post('/', commentsCtrl.create);
 router.get('/:id', commentsCtrl.show);
-router.delete('/comments/:id', commentsCtrl.delete);
+router.delete('/:id', commentsCtrl.delete);
+router.put('/:id/edit', commentsCtrl.update);
+router.get('/:id/edit', commentsCtrl.editComment);
+
 
 
 module.exports = router;
