@@ -2,7 +2,7 @@ const Episode = require('../models/episode');
 
 module.exports = {
     create,
-    // show
+    show
 }
 
 function create(req, res) {
@@ -15,3 +15,12 @@ function create(req, res) {
     })
 }
 
+function show(req,res) {
+    Episode.findById(req.params.id, function(err, episode) {
+        res.render('episodes', {
+            episode,
+            episodes,
+            user: req.user
+        })
+    })
+}
