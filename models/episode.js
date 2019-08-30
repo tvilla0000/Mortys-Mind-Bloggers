@@ -13,6 +13,10 @@ const episodeSchema = new Schema({
         min:1,
         max: 15,
         required: true
+    },
+    description: {
+        type: String,
+        
     }
 
 })
