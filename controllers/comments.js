@@ -44,7 +44,7 @@ function editComment(req, res) {
     Comment.findById(req.params.id, function(err, foundComment){
         res.render('editcomment', {
             comment: foundComment,
-            user: req.user
+            user: req.user  
         })
     })
 }
